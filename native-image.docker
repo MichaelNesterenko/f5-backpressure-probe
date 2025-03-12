@@ -1,0 +1,9 @@
+from ghcr.io/graalvm/native-image-community:23-muslib
+
+run mkdir /build
+
+# quick fix for gradle xargs dependency
+run echo -e '#!/usr/bin/env bash\nwhile read -d' ' -r l; do [ -n "$l" ] && echo "$l" | tr \" ""; done' > /usr/bin/xargs && chmod +x /usr/bin/xargs
+
+workdir "/build"
+entrypoint ["/usr/bin/bash", "-c", "{ nativeImageOutput=$(realpath applicationBuild) && tar -x && bash ./gradlew nativeCompile -PnativeImageOutput=$nativeImageOutput; } 1>&2; cat $nativeImageOutput"]
