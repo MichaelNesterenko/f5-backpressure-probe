@@ -1,0 +1,16 @@
+subprojects {
+    group = 'mn.f5'
+    version = '0.0.1-SNAPSHOT'
+
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(23)
+        }
+    }
+}

@@ -12,4 +12,6 @@ plugins {
 }
 
 rootProject.name = 'f5-backpressure-probe'
-include('app')
+
+include('probe')
+include('jmeter')
