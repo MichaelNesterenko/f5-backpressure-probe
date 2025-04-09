@@ -1,0 +1,20 @@
+services:
+  httpd:
+    build: containers/httpd
+    networks:
+      - own-project-01_default
+    depends_on:
+      - app-1
+      - app-2
+      - app-3
+  app-1: &app
+    build: containers/app
+    networks:
+      - own-project-01_default
+  app-2: *app
+  app-3: *app
+
+networks:
+  ### use your own network
+  own-project-01_default:
+    external: true

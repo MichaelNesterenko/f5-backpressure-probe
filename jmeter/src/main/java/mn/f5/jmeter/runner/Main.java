@@ -26,21 +26,21 @@ public class Main {
         JMeterUtils.loadJMeterProperties(jmeterHome.getAbsolutePath() + "/bin/jmeter.properties");
         JMeterUtils.initLocale();
 
-        JMeterUtils.setProperty("bp_probe_host", "localhost");
-        JMeterUtils.setProperty("bp_probe_port", "8080");
+        JMeterUtils.setProperty("bp_probe_host", "httpd");
+        JMeterUtils.setProperty("bp_probe_port", "80");
 
-        JMeterUtils.setProperty("bp_health_host", "localhost");
+        JMeterUtils.setProperty("bp_health_host", "app-1");
         JMeterUtils.setProperty("bp_health_scope", "health");
         JMeterUtils.setProperty("bp_health_port", "8080");
 
         JMeterUtils.setProperty("bp_probe_payload_thread_count", "5");
         JMeterUtils.setProperty("bp_probe_payload_ramp_time_seconds", "30");
-        JMeterUtils.setProperty("bp_probe_payload_coold_down_time_ms", "100");
-        JMeterUtils.setProperty("bp_probe_payload_request_count", "12000");
+        JMeterUtils.setProperty("bp_probe_payload_coold_down_time_ms", "60");
+        JMeterUtils.setProperty("bp_probe_payload_request_count", "6500");
 
-        JMeterUtils.setProperty("bp_health_toggle_count", "5");
-        JMeterUtils.setProperty("bp_health_start_delay_seconds", "0");
-        JMeterUtils.setProperty("bp_health_toggle_delay_ms", "60000");
+        JMeterUtils.setProperty("bp_health_toggle_count", "3");
+        JMeterUtils.setProperty("bp_health_start_delay_seconds", "600");
+        JMeterUtils.setProperty("bp_health_toggle_delay_ms", "300000");
 
         JMeterUtils.setProperty(JMeter.JMETER_REPORT_OUTPUT_DIR_PROPERTY, reportDir.getAbsolutePath());
 
